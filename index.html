@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <br>
+    <div>
+        <h1></h1>
+    </div>
+  
+      <script>
+        async function LogContact() {
+  const response = await fetch("http://localhost:3000/contacts");
+  const contact = await response.json();
+  console.log(contact);
+            
+
+  contact.forEach(element => {
+    const card = document.createElement("div")
+    card.innerHTML = `<div>
+                        <h1>${element.name}</h1>
+                    </div>`
+            card.className = "card"
+
+            const border = document.createElement("div")
+            border.className = "card-border-top"
+
+            card.appendChild(border)
+            const name_span = document.createElement("span")
+            name_span_text = document.createTextNode(element.name)
+            name_span.appendChild(name_span_text)
+            card.appendChild(name_span)
+
+            const phone_span = document.createElement("p")
+            phone_span.className = "job"
+            phone_span_text = document.createTextNode(element.phone)
+            phone_span.appendChild(phone_span_text)
+            card.appendChild(phone_span)
+
+            const email_span = document.createElement("p")
+            email_span.className = "job"
+            email_span_text = document.createTextNode(element.email)
+            email_span.appendChild(email_span_text)
+            card.appendChild(email_span)
+
+            document.body.appendChild(card)
+  });
+  document.write(con)
+}
+LogContact()
+      </script>
+</body>
+</html>
